@@ -1,7 +1,7 @@
 # Power-BI Project
 
 | Syntax | Description |
-------------------------
+|-----------|-------------|
 | 1 | Tasks Acomplished |
 | 2 | Methods of importation/transformation |
 | 3 | Transforms performed |
