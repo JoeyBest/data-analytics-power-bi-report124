@@ -10,10 +10,14 @@
 ## Milestone 1:
 #### This milestone included setting up a GitHub repo where the project and all changes/updates to it can be recorded
 
-## Milestone 2:
+## Milestone 2:
 #### This milestone included using the 'get data' function to connecting to different data sources, load and transform the data.
 1. Azure SQL Database - Orders - Transform included deleting the [Card Number] column, splitting both [Order Date] and [Shipping Date] columns into date and time columns, as well as removing missing or null values from [Order Date].
 2. Text/CSV - Products - Removed duplicates from the product_code column.
 3. Azure Blob Storage - Stores???????????????????????
 4. Folder - Customers folder - Combine and Transform to import the data, combining the [First Name] and [Last Name] to create a Full Name column and delete unused columns.
 5. Save the file
+
+## Milestone 3:
+#### The first part of this Milestone was to create a table containing all dates that covers the entire time period of the data.
+#### To do so, navigate to the new table function in the Home Ribbon and enter the following DAX code: ```Dates = CALENDAR(MIN(Orders[Order Date]), MAX(Orders[Shipping Date]))```
