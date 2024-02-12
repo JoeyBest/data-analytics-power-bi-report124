@@ -83,4 +83,47 @@
 #### Finally, a date slicer was added to allow users to filter the page by year, using the between slicer style.
 <img width="1440" alt="Screenshot 2024-02-12 at 2 06 05 am" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/66b27fd7-2cd4-4c34-8ac0-54f0c95d886c">
 
+## Milestone 6:
+
+### Task 1
+#### One of the visual cards from the Customer Detail page was coppied and pasted to the Executive Summary page three times and spread out half way across the page. Using the Distribute horozontally function, the spaces between could be made even.
+<img width="593" alt="Screenshot 2024-02-12 at 5 11 59 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/b4517fd1-1994-4e42-af6f-bf3ab6be82f0">
+<img width="177" alt="Screenshot 2024-02-12 at 5 12 25 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/2339ddb2-0170-4082-8f81-3dab9a955d28">
+
+#### These cards were then assigned to my Total Revenue, Total Orders and Total Profit measures. Using the Callout Value pane change the decimal values to 2 decimal places for the revenue and profit cards, and 1 for the Total Orders measure. 
+<img width="173" alt="Screenshot 2024-02-12 at 5 16 36 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/d79d5c6f-f276-46e1-87af-f00ded83fcc0">
+
+### Task 2
+#### copy the line graph from the Customer Detail page and paste on the executive summary page.
+- Set X axis to your Date Hierarchy (using only the levels Start of Year, Start of Quarter and Start of Month)
+- Set Y-axis to Total Revenue
+#### Then place the line chart just below the cards
+
+### Task 3 
+#### Adding two donut charts can also be done by copy and pasting from the Customer Details page. But adapt them to show Total Revenue broken down by Store[Country] and Store[Store Type] respectively. Place these on the right half of the page, one on top of the other and expand to ensure the data fits on the chart.
+
+### Task 4
+####  Create a Clustered bar chart visual with the X axis field containing Total Orders, an in the y-axis add Product Category.
+
+### Task 5
+#### In this task we want to create KPIs for Quarterly Revenue, Orders and Profit. But to do so we need to create some more measures in our Measures Table to calculate:
+- Previous Quarter Profit
+- Previous Quarter Revenue
+- Previous Quarter Orders
+- Target Profit/Revenue/Orders (equal to 5% growth compared to the previous quarter)
+#### The DAX formula for the Previous Quarter Profit is written as: 
+```Previous Quarter Profit = CALCULATE( SUMX(Orders, (RELATED(Products[Sale Price]) - RELATED(Products[Cost Price])) * ORDERS[Product Quantity]), PREVIOUSQUARTER(Dates[Date]) )``` 
+#### Using this you can adapt it for the Previous Quarter Revenue and Previous Quarter Orders DAX formulas.
+#### In order to to create the Targets we take the previous quarter and multiply it by 1.05 for the 5% growth. 
+```E.g. Target Profit = 'Measures Table'[Previous Quarter Profit] * 1.05```
+#### But adapt this code for the Target Revenue and Target Orders.
+
+#### Now we can create the KPIs we need. Add three KPI visuals below the Revenue line chart. 
+1. Within the first KPI (Revenue), the Value field should be Total Revenue, the Trend Axis should be Start of Quarter and the Target should be Target Revenue
+2. In the format pane ensure that the following is set for the Trend Axis, Direction: High is Good, Bad Colour: red and Transparency: 15%
+3. In the Callout Value set the decimal place value to 1
+4. For the second KPI (Profit), duplicate the first but change the Value field to Total Profit and change the Target to Target Profit
+5. Finally for the third KPI (Orders), duplicate one of the others again and change the Value field to Total Orders and change the Target to Target Orders
+
+
 
