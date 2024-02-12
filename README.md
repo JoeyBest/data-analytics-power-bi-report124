@@ -67,3 +67,20 @@
 #### On the right hand side, in the data pane, it can also be seen that two Hierarchies have been created: Region & Date Hierarchy; within the region Hierarchy it follows as Region > Country > Country Region. within the date Hierarchy it follows as Start of Year > Start of Quarter >  Start of Month > Start of Week > Date.
 
 <img width="1440" alt="Screenshot 2024-02-08 at 12 48 05 am" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/4fcce04c-1b2d-40fd-878d-8826367c0d2e">
+
+## Milestone 5:
+
+### Task 1
+#### Two rectanglular shapes were created and placed next to the navigation bar side by side. Inside these shapes I added a card visial for the number of unique customers and the revenue per customer.
+<img width="349" alt="Screenshot 2024-02-12 at 1 19 55 am" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/37cf36b9-ff76-432e-be3d-4f91bc11801d">
+
+### Task 2/3/4
+#### Next, a donut chart and a column chart visual to display the total customers for each country and the number of customers who purchased each product category, were created respectively.
+#### Then a line chart of the total customers by date and a table of the top 20 customers, filtered by revenue, was added. The line chart containing a drill down function to view number of customers by year, quarter or month, with a trendline and forecast for the next 10 periods with a 95% confidence interval. As well as the table containing the number of total orders and total revenue of the top 20 customers.
+
+### Task 5/6
+#### Similar to task 1, three card visuals were created to display the full name, total number of orders and total revenue of the top 20 customers, filtered by revenue and including data bars.
+#### Finally, a date slicer was added to allow users to filter the page by year, using the between slicer style.
+<img width="1440" alt="Screenshot 2024-02-12 at 2 06 05 am" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/66b27fd7-2cd4-4c34-8ac0-54f0c95d886c">
+
+
