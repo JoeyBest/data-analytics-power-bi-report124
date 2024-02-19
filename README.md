@@ -125,5 +125,64 @@
 4. For the second KPI (Profit), duplicate the first but change the Value field to Total Profit and change the Target to Target Profit
 5. Finally for the third KPI (Orders), duplicate one of the others again and change the Value field to Total Orders and change the Target to Target Orders
 
+## Milestone 7
+
+### Task 1
+#### Adding measures for current quarter performance and quarterly targets with a 10% growth for each metric is the first step. E.g. ``` Current Quarter Profit = CALCULATE(SUMX(Orders, (RELATED(Products[sale_price]) - RELATED(Products[cost_price])) * Orders[Product Quantity]), DATESQTD(Dates[Date]))```. From here we can create our gauges that will display a maximum value of our target and the currect performance as the value. If the value is under the target amount formate the callout value to be red, but if its met then format as green.
+<img width="621" alt="Screenshot 2024-02-19 at 7 03 06 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/46a48073-8969-44e4-8b28-ce90358c6854">
+
+### Task 2
+#### Create two new measures using the following DAX code:
+```Category Selection = IF(ISFILTERED(Products[Category]), SELECTEDVALUE(Products[Category]), "No Selection")```
+```Country Selection = IF(ISFILTERED(Stores[Country]), SELECTEDVALUE(Stores[Country]), "No Selection")```
+#### Create two rectangular boxes next to the three previous gauges and add a Card visual with one of the two previous measures in each.
+
+### Task 3
+#### Create a area chart visual using the following:
+- X axis should be Dates[Start of Quarter]
+- Y axis values should be Total Revenue
+- Legend should be Products[Category]
+
+### Task 4 
+#### Create a table with the following fields:
+- Product Description
+- Total Revenue
+- Total Customers
+- Total Orders
+- Profit per Order
+
+### Task 5
+#### In the products table, add a new calculated column with the DAX ```Profit per item = CALCULATE(SUMX(Orders, (RELATED(Products[sale_price]) - RELATED(Products[cost_price]))/ Orders[Product Quantity]))```, this will allow us to now create a scatter graph to visually display the profit of individual items.
+#### Create a scatter graph visual and add the following into the fields:
+- Values should be Products[Description]
+- X-Axis should be Products[Profit per Item]
+- Y-Axis should be Orders[Total Quantity]
+- Legend should be Products[Category]
+
+### Task 6
+#### Create a blank button for the top of yournnavigation bar and set the icon type to Custom in the Format pane. If you have an image for the icon you can skip to the next part. If not you can download some icon images here. -> [Icons](https://cdn.theaicore.com/content/projects/e71908f1-fbf5-4c65-ad36-7d43589c3706/navigation_bar_images.zip)
+
+#### Select Filter_icon.png (or your prefered image) as the icon image and set the tooltip text to Open Slicer Panel.
+<img width="166" alt="Screenshot 2024-02-19 at 7 32 50 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/8069e2c9-6a62-443f-8f93-716ecedf2b0e"> <img width="171" alt="Screenshot 2024-02-19 at 7 34 37 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/ac5f629f-fa6a-4bef-b2df-fef25ebeafcd">
+
+#### Duplicate your navigation bar and extend it 3-5x its original length. Create two slicers that will be placed in this new shape and set one to Products[Category], and the other to Stores[Country]. Change the titles to Product Category and Country respectively.
+- Change the slicer style to Vertical List
+- Turn off 'Multi-select with CTRL' for Product Category
+- Turn on 'Show "Select all" option' for Country
+- Group the slicers with your slicer toolbar shape in the selection pane
+<img width="195" alt="Screenshot 2024-02-19 at 7 50 57 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/1b94b009-4ecc-45cb-a661-703ae320b10d"><img width="193" alt="Screenshot 2024-02-19 at 7 51 14 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/826874da-27d7-4ca6-93db-2e632d3805ce">
+
+#### Create a button with the Back button type and position it at top-right corner of the toolbar. In the Selection pane, drag the back button into the group with the slicers and toolbar shape. 
+<img width="211" alt="Screenshot 2024-02-19 at 7 55 13 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/6c7c5cec-232a-45e2-9a84-2d65d2caee4a">
+
+#### Open the bookmarks pane and add two new bookmarks, one where the toolbar group is hidden in the Selection pane, and one with it visible. Name them Slicer Bar Closed and Slicer Bar Open. In these created bookmarks, right click and uncheck the data option. this will ensure that data from changing when the bookmarks are opened and closed.
+<img width="175" alt="Screenshot 2024-02-19 at 8 03 20 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/f1c0d7a9-6a0e-460b-818f-fb777d30c5dd">
+<img width="357" alt="Screenshot 2024-02-19 at 8 03 56 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/f8bce98b-fd07-460d-8847-03b0354010c8">
+<img width="358" alt="Screenshot 2024-02-19 at 8 04 35 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/d27e6417-014d-4c8f-9af0-08c4952a92ca">
+
+#### In the format pane of both the filter button and the back button assign the action type to bookmark, then select the relevent bookmark for slicer open or closed.
+<img width="196" alt="Screenshot 2024-02-19 at 8 08 14 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/32b0dca2-a202-4567-b181-f11ca864ef0b">
+<img width="194" alt="Screenshot 2024-02-19 at 8 08 36 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/248c4ee5-9e5e-44df-a123-4f37d2f25d8b">
+
 
 
