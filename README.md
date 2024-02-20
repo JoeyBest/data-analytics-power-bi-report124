@@ -224,3 +224,38 @@
 #### The map should now display the profits gauge when you hover over one of the stores.
 <img width="1109" alt="Screenshot 2024-02-20 at 12 10 17 am" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/510d52c2-a86e-4693-b1c8-fdc7dd3f1d08">
 
+## Milestone 9
+### Task 1
+#### Here we need to use the 'Edit Interactions' button in the ribbon from the Format Tab.
+
+### Executive Summary Page:
+1. Select the Product Category bar chart and then edit interactions to select 'None' on the card visuals and KPIs
+<img width="72" alt="Screenshot 2024-02-20 at 2 27 31 am" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/518ec5ca-ba33-45f3-a63f-89339ffce892"><img width="25" alt="Screenshot 2024-02-20 at 2 28 07 am" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/f8a67340-d742-46ab-ba36-2b7dffa3295c">
+2. Do the same for the Top 10 Products table
+
+### Customer Detail Page
+1. Top 20 Customers table - select 'None' on all visials
+2. Total Customers by Category Column Chart - Select 'None' on the Customers line graph
+3. Total Customers by Country donut chart - Select cross-filter on the Total Customers by Category Column Chart <img width="21" alt="Screenshot 2024-02-20 at 2 35 35 am" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/b68965ef-cb79-47bd-9b2f-12f630b811c1">
+
+### Product Detail Page
+1. Orders vs. Profitability scatter graph - select 'None' on all other visuals
+2. Top 10 Products table - select 'None' on all other visuals
+
+### Task 2
+#### Using the 'Icons' folder downloaded earlier we'll be completing the navigation bar.
+1. Create 4 empty buttons and place them in the navigation bar
+2. In the Format > Button Style pane, set Apply settings to 'Default'
+3. In Icon, set Icon Type to custom and select the relavent white Icon from the downloaded folder
+<img width="50" alt="Screenshot 2024-02-20 at 2 45 30 am" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/dc2228d5-d9e6-45bb-9f65-7f6719eba269">
+4. For each button, go to Format > Button Style > Apply settings to and set it to On Hover
+5. In Icon, remove the currect .png and select the relavent alternate coloured Icon from the downloaded folder
+<img width="48" alt="Screenshot 2024-02-20 at 2 54 42 am" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/6107cd9a-adf1-4eed-a7ee-3effacb5d6b0"><img width="47" alt="Screenshot 2024-02-20 at 2 55 10 am" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/fd703052-281e-4f59-84f4-dce9e722d675">
+7. For each button, turn on action in the format pane, change the type to Page Navigation and select the relevant page for the Icon.
+
+#### Now that the navigation bar is complete, group the buttons together then copy and paste them to the remaining pages.
+
+
+
+
+
