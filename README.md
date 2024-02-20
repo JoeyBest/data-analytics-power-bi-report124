@@ -255,6 +255,46 @@
 
 #### Now that the navigation bar is complete, group the buttons together then copy and paste them to the remaining pages.
 
+## Milestone 10
+#### Now that the project on PowerBi is complee we can connect to the database using SQL in VScode. If 'SQLTools' isn't already downloaded as an extension then download it now.
+
+- Select the SQLTools Extension <img width="44" alt="Screenshot 2024-02-20 at 9 52 16 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/625a3708-b518-422b-9fab-e978ae7b5f61">
+- Select 'Add New Connection' and then PostgresSQL <img width="18" alt="Screenshot 2024-02-20 at 9 53 49 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/5795a714-5d63-4db4-8f44-f58b37a16d0e"><img width="92" alt="Screenshot 2024-02-20 at 9 55 42 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/3fa3f663-481b-4f32-aa80-71333c142c68">
+- Using the credentials below, connect to the server:
+  1. HOST: powerbi-data-analytics-server.postgres.database.azure.com
+  2. PORT: 5432
+  3. DATABASE: orders-db
+  4. USER: maya
+  5. PASSWORD: AiCore127!
+#### Below is an example of how to enter the credentials. Bare in mind the connection name can be any name that you choose for it. Now you can test the connection and if all work well then you can select save connection.
+<img width="414" alt="Screenshot 2024-02-20 at 9 57 01 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/6345f585-9121-4878-8a1b-5ed2364f903f">
+
+### Task 2
+#### The database has now been connected to, but the tables within the database have different names to those we were working on in PowerBi. Using SQL we want to get an understanding for the data that it does have.
+1. Print a list of the tables in the database and save the result to a csv file for your reference.
+```
+SELECT TABLE_NAME
+FROM 
+    INFORMATION_SCHEMA.TABLES
+WHERE 
+    TABLE_TYPE = 'BASE TABLE' 
+    AND 
+    table_schema = 'public'
+ORDER BY
+    table_name;
+```
+2. Print a list of the columns in the orders table and save the result to a csv file called orders_columns.csv
+3. Repeat the same process for each other table in the database, saving the results to a csv file with the same name as the table
+<img width="219" alt="Screenshot 2024-02-20 at 10 09 45 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/c9a3cd21-fa95-46ee-bd4b-9719060b6b0d"><img width="208" alt="Screenshot 2024-02-20 at 10 10 15 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/d5844b29-6345-45a0-8f04-9c087da7d467"><img width="165" alt="Screenshot 2024-02-20 at 10 10 57 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/27b56d45-7390-4549-8d87-eb3af2097599">
+
+### Task 3
+#### Using SQL answer the following questions and save as both a .csv and .sql file:
+1. How many staff are there in all of the UK stores?
+2. Which month in 2022 has had the highest revenue?
+3. Which German store type had the highest revenue for 2022?
+4. Create a view where the rows are the store types and the columns are the total sales, percentage of total sales and the count of orders
+5. Which product category generated the most profit for the "Wiltshire, UK" region in 2021?
+<img width="165" alt="Screenshot 2024-02-20 at 10 15 52 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/a0c843d2-954f-42a2-8cf7-0768898d5147">
 
 
 
