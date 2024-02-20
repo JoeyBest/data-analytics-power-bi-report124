@@ -185,4 +185,42 @@
 <img width="194" alt="Screenshot 2024-02-19 at 8 08 36 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/248c4ee5-9e5e-44df-a123-4f37d2f25d8b">
 
 
+## Milestone 8
+
+### Task 1
+#### Create a map visual spanning the majority of the page, with a space on top for a slicer to be added later. Add 'Geography' into the location field and 'Profit YTD' into the Bubble size field and set the following in the formatting:
+- Show Labels: On
+- Auto-Zoom: On
+- Zoom buttons: Off
+- Lasso button: Off
+
+### Task 2
+#### Create a slicer above the map visual and add Stores[Country] to the field. Set the slicer style to Tile and the Selection settings to Multi-select with CTRL and Show "Select All" as an option in the slicer.
+<img width="197" alt="Screenshot 2024-02-19 at 11 36 26 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/21adcddc-588c-46f9-9086-2d5250a14fd1">
+
+### Task 3
+#### Make a new page called Stores Drillthrough. In the format pane, set the Page type to 'Drillthrough', set Drill through from to 'country region' and set Drill through when to 'Used as category.'
+<img width="183" alt="Screenshot 2024-02-19 at 11 49 36 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/2cbf5c83-6836-46ed-b6e6-f8c4b9a927ef">
+<img width="178" alt="Screenshot 2024-02-19 at 11 50 00 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/abafc4d3-1ed7-4f6f-81aa-47c48edd9565">
+<img width="180" alt="Screenshot 2024-02-19 at 11 50 13 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/f02b6283-d03d-49f4-bdf1-963db6ee4a3e">
+
+#### Create two new measures: Profit Goal & Revenue Goal (target of 20% year-on-year growth vs. the same period in the previous year)
+```Profit Goal = CALCULATE( 'Measures Table'[Total Profit], SAMEPERIODLASTYEAR(DATESYTD(Dates[Date])) ) * 1.2```
+```Revenue Goal = CALCULATE( 'Measures Table'[Total Revenue], SAMEPERIODLASTYEAR(DATESYTD(Dates[Date])) ) * 1.2```
+
+1. Create a table showing the top 5 products, with columns: Description, Profit YTD, Total Orders, Total Revenue
+2. A column chart showing Total Orders by product category for the store
+3. Gauges for Profit YTD & Revenue YTD against a profit/revenue goal (The goal should use the Target field)
+4. A Card visual showing the currently selected store
+<img width="1111" alt="Screenshot 2024-02-19 at 11 53 26 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/8854981d-000f-4f07-8c40-dabfdcd73409">
+
+### Task 4
+#### Create a new page called Stores Tooltips. Copy and paste the profit gauge created on the previous page to this new one.
+1. Head back too the Stores Map Page
+2. Select the map and in the format pane turn on Tooltips
+3. Set the Type to 'Report Page'
+4. Set the Page to 'Stores Tooltip'
+
+#### The map should now display the profits gauge when you hover over one of the stores.
+<img width="1109" alt="Screenshot 2024-02-20 at 12 10 17 am" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/510d52c2-a86e-4693-b1c8-fdc7dd3f1d08">
 
