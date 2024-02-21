@@ -151,23 +151,29 @@
 
 ## Milestone 7: Create a Product Detail Page
 
-### Task 1
-#### Adding measures for current quarter performance and quarterly targets with a 10% growth for each metric is the first step. E.g. ``` Current Quarter Profit = CALCULATE(SUMX(Orders, (RELATED(Products[sale_price]) - RELATED(Products[cost_price])) * Orders[Product Quantity]), DATESQTD(Dates[Date]))```. From here we can create our gauges that will display a maximum value of our target and the currect performance as the value. If the value is under the target amount formate the callout value to be red, but if its met then format as green.
+### Gauge Visuals
+#### Add measures for current quarter performance and quarterly targets with a 10% growth for each metric. 
+```
+E.g.
+Current Quarter Profit = CALCULATE(SUMX(Orders, (RELATED(Products[sale_price]) - RELATED(Products[cost_price])) * Orders[Product Quantity]), DATESQTD(Dates[Date]))
+Target Quarter Profit = 'Measures Table'[Current Quarter Profit] * 1.10
+``` 
+#### From here we can create our gauges that will display a maximum value of our target and the currect performance as the value. If the value is under the target amount format the callout value to be red, but if its met then format as green.
 <img width="621" alt="Screenshot 2024-02-19 at 7 03 06 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/46a48073-8969-44e4-8b28-ce90358c6854">
 
-### Task 2
+### Filter State Cards
 #### Create two new measures using the following DAX code:
 ```Category Selection = IF(ISFILTERED(Products[Category]), SELECTEDVALUE(Products[Category]), "No Selection")```
 ```Country Selection = IF(ISFILTERED(Stores[Country]), SELECTEDVALUE(Stores[Country]), "No Selection")```
 #### Create two rectangular boxes next to the three previous gauges and add a Card visual with one of the two previous measures in each.
 
-### Task 3
+### Area Chart
 #### Create a area chart visual using the following:
 - X axis should be Dates[Start of Quarter]
 - Y axis values should be Total Revenue
 - Legend should be Products[Category]
 
-### Task 4 
+### Top Products Table
 #### Create a table with the following fields:
 - Product Description
 - Total Revenue
@@ -175,16 +181,17 @@
 - Total Orders
 - Profit per Order
 
-### Task 5
-#### In the products table, add a new calculated column with the DAX ```Profit per item = CALCULATE(SUMX(Orders, (RELATED(Products[sale_price]) - RELATED(Products[cost_price]))/ Orders[Product Quantity]))```, this will allow us to now create a scatter graph to visually display the profit of individual items.
-#### Create a scatter graph visual and add the following into the fields:
+### Scatter Graph
+#### In the products table, add a new calculated column with the DAX 
+```Profit per item = CALCULATE(SUMX(Orders, (RELATED(Products[sale_price]) - RELATED(Products[cost_price]))/ Orders[Product Quantity]))```
+#### This will allow us to visually display the profit of individual items. Create a scatter graph visual and add the following into the fields:
 - Values should be Products[Description]
 - X-Axis should be Products[Profit per Item]
 - Y-Axis should be Orders[Total Quantity]
 - Legend should be Products[Category]
 
-### Task 6
-#### Create a blank button for the top of yournnavigation bar and set the icon type to Custom in the Format pane. If you have an image for the icon you can skip to the next part. If not you can download some icon images here. -> [Icons](https://cdn.theaicore.com/content/projects/e71908f1-fbf5-4c65-ad36-7d43589c3706/navigation_bar_images.zip)
+### Slicer Toolbar
+#### Create a blank button for the top of your navigation bar and set the icon type to 'Custom' in the Format pane. If you have images for the icons you can skip to the next part. If not you can download some icon images here. -> [Icons](https://cdn.theaicore.com/content/projects/e71908f1-fbf5-4c65-ad36-7d43589c3706/navigation_bar_images.zip)
 
 #### Select Filter_icon.png (or your prefered image) as the icon image and set the tooltip text to Open Slicer Panel.
 <img width="166" alt="Screenshot 2024-02-19 at 7 32 50 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/8069e2c9-6a62-443f-8f93-716ecedf2b0e"> <img width="171" alt="Screenshot 2024-02-19 at 7 34 37 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/ac5f629f-fa6a-4bef-b2df-fef25ebeafcd">
@@ -194,6 +201,7 @@
 - Turn off 'Multi-select with CTRL' for Product Category
 - Turn on 'Show "Select all" option' for Country
 - Group the slicers with your slicer toolbar shape in the selection pane
+
 <img width="195" alt="Screenshot 2024-02-19 at 7 50 57 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/1b94b009-4ecc-45cb-a661-703ae320b10d"><img width="193" alt="Screenshot 2024-02-19 at 7 51 14 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/826874da-27d7-4ca6-93db-2e632d3805ce">
 
 #### Create a button with the Back button type and position it at top-right corner of the toolbar. In the Selection pane, drag the back button into the group with the slicers and toolbar shape. 
@@ -208,29 +216,28 @@
 <img width="196" alt="Screenshot 2024-02-19 at 8 08 14 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/32b0dca2-a202-4567-b181-f11ca864ef0b">
 <img width="194" alt="Screenshot 2024-02-19 at 8 08 36 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/248c4ee5-9e5e-44df-a123-4f37d2f25d8b">
 
+## Milestone 8: Create a Stores Map Page
 
-## Milestone 8
-
-### Task 1
+### Map Visual
 #### Create a map visual spanning the majority of the page, with a space on top for a slicer to be added later. Add 'Geography' into the location field and 'Profit YTD' into the Bubble size field and set the following in the formatting:
 - Show Labels: On
 - Auto-Zoom: On
 - Zoom buttons: Off
 - Lasso button: Off
 
-### Task 2
+### Country Slicer
 #### Create a slicer above the map visual and add Stores[Country] to the field. Set the slicer style to Tile and the Selection settings to Multi-select with CTRL and Show "Select All" as an option in the slicer.
 <img width="197" alt="Screenshot 2024-02-19 at 11 36 26 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/21adcddc-588c-46f9-9086-2d5250a14fd1">
 
-### Task 3
+### Creating a Stores Drillthrough Page
 #### Make a new page called Stores Drillthrough. In the format pane, set the Page type to 'Drillthrough', set Drill through from to 'country region' and set Drill through when to 'Used as category.'
 <img width="183" alt="Screenshot 2024-02-19 at 11 49 36 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/2cbf5c83-6836-46ed-b6e6-f8c4b9a927ef">
 <img width="178" alt="Screenshot 2024-02-19 at 11 50 00 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/abafc4d3-1ed7-4f6f-81aa-47c48edd9565">
 <img width="180" alt="Screenshot 2024-02-19 at 11 50 13 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/f02b6283-d03d-49f4-bdf1-963db6ee4a3e">
 
-#### Create two new measures: Profit Goal & Revenue Goal (target of 20% year-on-year growth vs. the same period in the previous year)
-```Profit Goal = CALCULATE( 'Measures Table'[Total Profit], SAMEPERIODLASTYEAR(DATESYTD(Dates[Date])) ) * 1.2```
-```Revenue Goal = CALCULATE( 'Measures Table'[Total Revenue], SAMEPERIODLASTYEAR(DATESYTD(Dates[Date])) ) * 1.2```
+#### Next create two new measures: Profit Goal & Revenue Goal (target of 20% year-on-year growth vs. the same period in the previous year)
+- ```Profit Goal = CALCULATE( 'Measures Table'[Total Profit], SAMEPERIODLASTYEAR(DATESYTD(Dates[Date])) ) * 1.2```
+- ```Revenue Goal = CALCULATE( 'Measures Table'[Total Revenue], SAMEPERIODLASTYEAR(DATESYTD(Dates[Date])) ) * 1.2```
 
 1. Create a table showing the top 5 products, with columns: Description, Profit YTD, Total Orders, Total Revenue
 2. A column chart showing Total Orders by product category for the store
@@ -238,7 +245,7 @@
 4. A Card visual showing the currently selected store
 <img width="1111" alt="Screenshot 2024-02-19 at 11 53 26 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/8854981d-000f-4f07-8c40-dabfdcd73409">
 
-### Task 4
+### Create a Stores Tooltip Page
 #### Create a new page called Stores Tooltips. Copy and paste the profit gauge created on the previous page to this new one.
 1. Head back too the Stores Map Page
 2. Select the map and in the format pane turn on Tooltips
@@ -248,14 +255,13 @@
 #### The map should now display the profits gauge when you hover over one of the stores.
 <img width="1109" alt="Screenshot 2024-02-20 at 12 10 17 am" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/510d52c2-a86e-4693-b1c8-fdc7dd3f1d08">
 
-## Milestone 9
-### Task 1
-#### Here we need to use the 'Edit Interactions' button in the ribbon from the Format Tab.
-
+## Milestone 9: Cross-Filtering and Navigation
+### Fixing Cross-Filtering
 ### Executive Summary Page:
-1. Select the Product Category bar chart and then edit interactions to select 'None' on the card visuals and KPIs
+1. Select the Product Category bar chart and then 'Edit Interactions' (in the ribbon of the Format Tab) to select 'None' on the card visuals and KPIs
 <img width="72" alt="Screenshot 2024-02-20 at 2 27 31 am" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/518ec5ca-ba33-45f3-a63f-89339ffce892"><img width="25" alt="Screenshot 2024-02-20 at 2 28 07 am" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/f8a67340-d742-46ab-ba36-2b7dffa3295c">
 2. Do the same for the Top 10 Products table
+3. Follow the same procedure for all charts in this milestone, but pay attention to which visual interaction should be fixed.
 
 ### Customer Detail Page
 1. Top 20 Customers table - select 'None' on all visials
@@ -266,35 +272,34 @@
 1. Orders vs. Profitability scatter graph - select 'None' on all other visuals
 2. Top 10 Products table - select 'None' on all other visuals
 
-### Task 2
+### Complete the Navigation Bar
 #### Using the 'Icons' folder downloaded earlier we'll be completing the navigation bar.
 1. Create 4 empty buttons and place them in the navigation bar
 2. In the Format > Button Style pane, set Apply settings to 'Default'
-3. In Icon, set Icon Type to custom and select the relavent white Icon from the downloaded folder
-<img width="50" alt="Screenshot 2024-02-20 at 2 45 30 am" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/dc2228d5-d9e6-45bb-9f65-7f6719eba269">
+3. In Icon, set Icon Type to custom and select the relavent white Icon from the downloaded folder <img width="51" alt="Screenshot 2024-02-21 at 1 19 00 am" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/b40f97e8-ed6e-404c-8c6c-520aa465c0f1">
 4. For each button, go to Format > Button Style > Apply settings to and set it to On Hover
 5. In Icon, remove the currect .png and select the relavent alternate coloured Icon from the downloaded folder
 <img width="48" alt="Screenshot 2024-02-20 at 2 54 42 am" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/6107cd9a-adf1-4eed-a7ee-3effacb5d6b0"><img width="47" alt="Screenshot 2024-02-20 at 2 55 10 am" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/fd703052-281e-4f59-84f4-dce9e722d675">
-7. For each button, turn on action in the format pane, change the type to Page Navigation and select the relevant page for the Icon.
+6. For each button, turn on action in the format pane, change the type to Page Navigation and select the relevant page for the Icon.
 
 #### Now that the navigation bar is complete, group the buttons together then copy and paste them to the remaining pages.
 
-## Milestone 10
-#### Now that the project on PowerBi is complee we can connect to the database using SQL in VScode. If 'SQLTools' isn't already downloaded as an extension then download it now.
+## Milestone 10: Create Metrics for Users Outside the Company Using SQL
+#### Now that the project on PowerBi is complete we can connect to the database using SQL in VScode. If 'SQLTools' isn't already downloaded as an extension then download it now.
 
+### Connecting to the Server
 - Select the SQLTools Extension <img width="44" alt="Screenshot 2024-02-20 at 9 52 16 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/625a3708-b518-422b-9fab-e978ae7b5f61">
 - Select 'Add New Connection' and then PostgresSQL <img width="18" alt="Screenshot 2024-02-20 at 9 53 49 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/5795a714-5d63-4db4-8f44-f58b37a16d0e"><img width="92" alt="Screenshot 2024-02-20 at 9 55 42 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/3fa3f663-481b-4f32-aa80-71333c142c68">
-- Using the credentials below, connect to the server:
-  1. HOST: powerbi-data-analytics-server.postgres.database.azure.com
+- Using your credentials connect to the server, such will include:
+  1. HOST: 
   2. PORT: 5432
-  3. DATABASE: orders-db
-  4. USER: maya
-  5. PASSWORD: AiCore127!
-#### Below is an example of how to enter the credentials. Bare in mind the connection name can be any name that you choose for it. Now you can test the connection and if all work well then you can select save connection.
-<img width="414" alt="Screenshot 2024-02-20 at 9 57 01 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/6345f585-9121-4878-8a1b-5ed2364f903f">
+  3. DATABASE:
+  4. USERNAME:
+  5. PASSWORD:
+#### Now you can test the connection and if all work well then you can select save connection.
 
-### Task 2
-#### The database has now been connected to, but the tables within the database have different names to those we were working on in PowerBi. Using SQL we want to get an understanding for the data that it does have.
+### Check the Table and Column Names
+#### The database is now connected, but the tables within the database have different names to those we were working on in PowerBi. Using SQL we want to get an understanding for the data that it does have.
 1. Print a list of the tables in the database and save the result to a csv file for your reference.
 ```
 SELECT TABLE_NAME
@@ -309,9 +314,10 @@ ORDER BY
 ```
 2. Print a list of the columns in the orders table and save the result to a csv file called orders_columns.csv
 3. Repeat the same process for each other table in the database, saving the results to a csv file with the same name as the table
+
 <img width="219" alt="Screenshot 2024-02-20 at 10 09 45 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/c9a3cd21-fa95-46ee-bd4b-9719060b6b0d"><img width="208" alt="Screenshot 2024-02-20 at 10 10 15 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/d5844b29-6345-45a0-8f04-9c087da7d467"><img width="165" alt="Screenshot 2024-02-20 at 10 10 57 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/27b56d45-7390-4549-8d87-eb3af2097599">
 
-### Task 3
+### Query the Database
 #### Using SQL answer the following questions and save as both a .csv and .sql file:
 1. How many staff are there in all of the UK stores?
 2. Which month in 2022 has had the highest revenue?
