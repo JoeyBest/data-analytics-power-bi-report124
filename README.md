@@ -1,5 +1,4 @@
 # Power-BI Project
-## Data Analytics Power-Bi Report124
 
 ## Contents Table
 | Syntax | Description |
@@ -13,17 +12,12 @@
 | 8 | Stores Map Page |
 | 9 | Drillthrough Page |
 | 10 | Cross-Filtering and Navigation |
-
-```
-Data Sources, Data Cleaning and Transformation, Data
-Model, Executive Summary Page, Product Detail Page, Customer Detail Page,
-Stores Map Page, Drillthrough Page, Cross-Filtering and Navigation
-```
+| 11 | File Structure |
 
 ## Data Sources
 #### First, set up a GitHub repo where the project and all changes/updates to it can be recorded.
 
-#### Using the Import option in Power BI connect to the Azure database. To do so you will need the necessary credentials and table name. Use the Database credentials option
+#### Using the Import option in Power BI connect to the Azure database. To do so you will need the necessary credentials and table name. Use the Database credentials option.
 #### By selecting the 'get data' function to connect to different data sources, we can now load and transform the data. 
 
 ## Data Cleaning and Transformation
@@ -335,3 +329,53 @@ ORDER BY
 4. Create a view where the rows are the store types and the columns are the total sales, percentage of total sales and the count of orders
 5. Which product category generated the most profit for the "Wiltshire, UK" region in 2021?
 <img width="165" alt="Screenshot 2024-02-20 at 10 15 52 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/a0c843d2-954f-42a2-8cf7-0768898d5147">
+
+## File Structure:
+```
+.
+└── /Users/
+    └── joeybest/
+        └── Ai Core/
+            └── power bi/
+                └── data-analytics-power-bi-report124/
+                    ├── Power BI Project.pbix
+                    ├── README.md
+                    ├── PowerBiSQL/
+                    │   ├── Questions/
+                    │   │   ├── PowerBi.session.sql
+                    │   │   ├── question_1.csv
+                    │   │   ├── question_1.sql
+                    │   │   ├── question_2.csv
+                    │   │   ├── question_2.sql
+                    │   │   ├── question_3.csv
+                    │   │   ├── question_3.sql
+                    │   │   ├── question_4.csv
+                    │   │   ├── question_4.sql
+                    │   │   ├── question_5.csv
+                    │   │   └── question_5.sql
+                    │   └── tables_and_columns/
+                    │       ├── country_region.csv
+                    │       ├── dim_customer.csv
+                    │       ├── dim_date.csv
+                    │       ├── dim_product.csv
+                    │       ├── dim_store.csv
+                    │       ├── forquerying2.csv
+                    │       ├── forview.csv
+                    │       ├── Milestone10.csv
+                    │       ├── my_store_overviews_2.csv
+                    │       ├── my_store_overviews.csv
+                    │       ├── my_store_overviewsnew.csv
+                    │       ├── new_store_overview.csv
+                    │       ├── orders_columns.csv
+                    │       ├── test_store_overviews_2.csv
+                    │       ├── test_store_overviews.csv
+                    │       └── test.csv
+                    └── Images/
+                        ├── Client Detail Screenshot.png
+                        ├── Executive Summary Screenshot.png
+                        ├── Product Detail Screenshot.png
+                        ├── Product Detail Toolbar Screenshot.png
+                        ├── Stores Drillthrough Screenshot.png
+                        ├── Stores Map Screenshot.png
+                        └── Stores Tooltip Screenshot.png
+```
