@@ -1,24 +1,33 @@
 # Power-BI Project
+## Data Analytics Power-Bi Report124
 
-| Milestone | Description |
+## Contents Table
+| Syntax | Description |
 |-----------|-------------|
-| 1 | Set Up the Environment |
-| 2 | Import the Data into PowerBi |
-| 3 | Create the Data Model |
-| 4 | Set Up the Report |
-| 5 | Build a Customer Detail Page |
-| 6 | Create an Executive Summary Page |
-| 7 | Create a Product Detail Page |
-| 8 | Create a Stores Map Page |
-| 9 | Cross-Filtering and Navigation |
-| 10 | Create Metrics for Users Outside the Company Using SQL |
+| 1 | Data Sources |
+| 2 | Data Cleaning and Transformation |
+| 3 | Data Model |
+| 5 | Customer Detail Page |
+| 6 | Executive Summary Page |
+| 7 | Product Detail Page |
+| 8 | Stores Map Page |
+| 9 | Drillthrough Page |
+| 10 | Cross-Filtering and Navigation |
 
-## Milestone 1: Set Up the Environment
-#### This milestone included setting up a GitHub repo where the project and all changes/updates to it can be recorded.
+```
+Data Sources, Data Cleaning and Transformation, Data
+Model, Executive Summary Page, Product Detail Page, Customer Detail Page,
+Stores Map Page, Drillthrough Page, Cross-Filtering and Navigation
+```
 
-## Milestone 2: Import the Data into PowerBi
-#### This milestone included using the 'get data' function to connecting to different data sources, load and transform the data. For the folowing it will be in the order of Get Data>[Database to connect to]>[Table to import]>[Transformation to be made].
-#### Before you can do this, you will need the credentials for the database:
+## Data Sources
+#### First, set up a GitHub repo where the project and all changes/updates to it can be recorded.
+
+#### Using the Import option in Power BI connect to the Azure database. To do so you will need the necessary credentials and table name. Use the Database credentials option
+#### By selecting the 'get data' function to connect to different data sources, we can now load and transform the data. 
+
+## Data Cleaning and Transformation
+#### For the folowing it will be in the order of Get Data>[Database to connect to]>[Table to import]>[Transformation to be made].
 
 1. Azure SQL Database - Orders - Delete the [Card Number] column, split both [Order Date] and [Shipping Date] columns into date and time columns, and remove missing or null values from [Order Date]
 2. Text/CSV - Products - Remove duplicates from the product_code column
@@ -26,7 +35,7 @@
 4. Folder - Customers folder - Combining the [First Name] and [Last Name] to create a Full Name column and delete unused columns.
 5. Save the file
 
-## Milestone 3: Create the Data Model
+## Data Model
 ### Creating a data table
 #### We want to create a table with all dates that cover the entire time period of the data. To do so, navigate to the new table function in the Home Ribbon and enter the following DAX code: 
 ```Dates = CALENDAR(MIN(Orders[Order Date]), MAX(Orders[Shipping Date]))```
@@ -76,19 +85,20 @@
 
 <img width="1440" alt="Screenshot 2024-02-08 at 12 48 05 am" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/4fcce04c-1b2d-40fd-878d-8826367c0d2e">
 
-## Milestone 4: Set Up the Report
-### Creating the report Pages
-#### Create 4 pages, Format as you wish and rename them with the following:
+
+## Customer Detail Page
+
+#### First we need to create a report page.
+#### Add a narrow rectangular shape that spans the height of the page to the left-hand side of the page. Duplicate this report page to have 4 identical pages.
+
+#### Format them as you wish and rename them with the following:
 - Executive Summary
 - Customer Detail
 - Product Detail
 - Stores Map
-#### Add a narrow rectangular shape that spans the height of the page to the left-hand side of the 'Executive Summary' page.
-
-## Milestone 5: Build a Customer Detail Page
 
 ### Card Visuals
-#### Create two rectanglular shapes and place next to the navigation bar side by side. Inside these shapes add a card visial for the number of unique customers and the revenue per customer.
+#### Within the Customer Detail Page, create two rectanglular shapes and place next to the navigation bar side by side. Inside these shapes add a card visial for the number of unique customers and the revenue per customer.
 <img width="349" alt="Screenshot 2024-02-12 at 1 19 55 am" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/37cf36b9-ff76-432e-be3d-4f91bc11801d">
 
 ### Summary Charts
@@ -108,7 +118,7 @@
 #### Finally, add a date slicer to allow users to filter the page by year, using the between slicer style.
 <img width="1440" alt="Screenshot 2024-02-12 at 2 06 05 am" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/66b27fd7-2cd4-4c34-8ac0-54f0c95d886c">
 
-## Milestone 6: Create an Executive Summary Page
+## Executive Summary Page
 
 ### Card Visuals
 #### Copy one of the visual cards from the Customer Detail page and paste to the Executive Summary page three times, and spread out half way across the page. Using the Distribute horozontally function, the spaces between can be made even.
@@ -149,7 +159,7 @@
 4. For the second KPI (Profit), duplicate the first but change the Value field to Total Profit and change the Target to Target Profit
 5. Finally for the third KPI (Orders), duplicate one of the others again and change the Value field to Total Orders and change the Target to Target Orders
 
-## Milestone 7: Create a Product Detail Page
+## Product Detail Page
 
 ### Gauge Visuals
 #### Add measures for current quarter performance and quarterly targets with a 10% growth for each metric. 
@@ -216,7 +226,7 @@ Target Quarter Profit = 'Measures Table'[Current Quarter Profit] * 1.10
 <img width="196" alt="Screenshot 2024-02-19 at 8 08 14 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/32b0dca2-a202-4567-b181-f11ca864ef0b">
 <img width="194" alt="Screenshot 2024-02-19 at 8 08 36 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/248c4ee5-9e5e-44df-a123-4f37d2f25d8b">
 
-## Milestone 8: Create a Stores Map Page
+## Stores Map Page
 
 ### Map Visual
 #### Create a map visual spanning the majority of the page, with a space on top for a slicer to be added later. Add 'Geography' into the location field and 'Profit YTD' into the Bubble size field and set the following in the formatting:
@@ -229,7 +239,7 @@ Target Quarter Profit = 'Measures Table'[Current Quarter Profit] * 1.10
 #### Create a slicer above the map visual and add Stores[Country] to the field. Set the slicer style to Tile and the Selection settings to Multi-select with CTRL and Show "Select All" as an option in the slicer.
 <img width="197" alt="Screenshot 2024-02-19 at 11 36 26 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/21adcddc-588c-46f9-9086-2d5250a14fd1">
 
-### Creating a Stores Drillthrough Page
+## Drillthrough Page
 #### Make a new page called Stores Drillthrough. In the format pane, set the Page type to 'Drillthrough', set Drill through from to 'country region' and set Drill through when to 'Used as category.'
 <img width="183" alt="Screenshot 2024-02-19 at 11 49 36 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/2cbf5c83-6836-46ed-b6e6-f8c4b9a927ef">
 <img width="178" alt="Screenshot 2024-02-19 at 11 50 00 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/abafc4d3-1ed7-4f6f-81aa-47c48edd9565">
@@ -245,7 +255,7 @@ Target Quarter Profit = 'Measures Table'[Current Quarter Profit] * 1.10
 4. A Card visual showing the currently selected store
 <img width="1111" alt="Screenshot 2024-02-19 at 11 53 26 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/8854981d-000f-4f07-8c40-dabfdcd73409">
 
-### Create a Stores Tooltip Page
+### Stores Tooltip Page
 #### Create a new page called Stores Tooltips. Copy and paste the profit gauge created on the previous page to this new one.
 1. Head back too the Stores Map Page
 2. Select the map and in the format pane turn on Tooltips
@@ -255,7 +265,7 @@ Target Quarter Profit = 'Measures Table'[Current Quarter Profit] * 1.10
 #### The map should now display the profits gauge when you hover over one of the stores.
 <img width="1109" alt="Screenshot 2024-02-20 at 12 10 17 am" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/510d52c2-a86e-4693-b1c8-fdc7dd3f1d08">
 
-## Milestone 9: Cross-Filtering and Navigation
+## Cross-Filtering and Navigation
 ### Fixing Cross-Filtering
 ### Executive Summary Page:
 1. Select the Product Category bar chart and then 'Edit Interactions' (in the ribbon of the Format Tab) to select 'None' on the card visuals and KPIs
@@ -284,7 +294,7 @@ Target Quarter Profit = 'Measures Table'[Current Quarter Profit] * 1.10
 
 #### Now that the navigation bar is complete, group the buttons together then copy and paste them to the remaining pages.
 
-## Milestone 10: Create Metrics for Users Outside the Company Using SQL
+### <ins>Metrics for Users Outside the Company Using SQL</ins>
 #### Now that the project on PowerBi is complete we can connect to the database using SQL in VScode. If 'SQLTools' isn't already downloaded as an extension then download it now.
 
 ### Connecting to the Server
@@ -296,7 +306,7 @@ Target Quarter Profit = 'Measures Table'[Current Quarter Profit] * 1.10
   3. DATABASE:
   4. USERNAME:
   5. PASSWORD:
-#### Now you can test the connection and if all work well then you can select save connection.
+#### Now you can test the connection and if all works well then you can select save connection.
 
 ### Check the Table and Column Names
 #### The database is now connected, but the tables within the database have different names to those we were working on in PowerBi. Using SQL we want to get an understanding for the data that it does have.
@@ -325,7 +335,3 @@ ORDER BY
 4. Create a view where the rows are the store types and the columns are the total sales, percentage of total sales and the count of orders
 5. Which product category generated the most profit for the "Wiltshire, UK" region in 2021?
 <img width="165" alt="Screenshot 2024-02-20 at 10 15 52 pm" src="https://github.com/JoeyBest/data-analytics-power-bi-report124/assets/149332225/a0c843d2-954f-42a2-8cf7-0768898d5147">
-
-
-
-

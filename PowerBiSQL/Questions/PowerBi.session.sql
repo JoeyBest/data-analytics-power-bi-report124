@@ -4,10 +4,6 @@ FROM
 WHERE 
     table_type = 'BASE TABLE';
 
-/* managed to get table of tables, but it seems to include the
-the tables out of the 'Tables' schemas as well??? 
-Still need to save as CSV too!!!
-*/
 
 SELECT TABLE_NAME
 FROM 
@@ -19,9 +15,9 @@ WHERE
 ORDER BY
     table_name;
 
-/* I think i did it!!!
-Saved it as Milestone10.csv 
-*/
+ 
+-- Saved in tables_and_columns as Milestone10.csv 
+-- Do the same for all other tables, but save as their table name.
 
 SELECT COLUMN_NAME
 FROM 
@@ -160,6 +156,7 @@ SELECT full_region
 FROM 
     dim_store
 
+-- Questions:
 -- q1: How many staff are there in all of the UK stores?
 SELECT staff_numbers, full_region
 FROM
